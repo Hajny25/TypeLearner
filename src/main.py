@@ -7,11 +7,10 @@ WINDOW_HEIGHT = 800
 WINDOW_WIDTH = 1000
 FONT = "Arial"
 WHITESPACE_CHAR = u"\u00B7"
-PACKAGES_PATH = r"D:\Python Projects\typing test\packages"
+INPUT_PATH = os.path.join("..", "input")
 
 
 class Game:
-
     root: tk.Tk
     sentence_label: tk.Text
     input_field: CustomText
@@ -22,10 +21,8 @@ class Game:
     def __init__(self):
         self.setup_window()
 
-        self.sentence_label = tk.Text(
-            self.root, state="disabled", font=FONT, padx=10, pady=10, height=10, wrap=tk.WORD)
-        self.input_field = CustomText(
-            self.root, padx=10, pady=10, font=FONT, wrap=tk.WORD)
+        self.sentence_label = tk.Text(self.root, state="disabled", font=FONT, padx=10, pady=10, height=10, wrap=tk.WORD)
+        self.input_field = CustomText(self.root, padx=10, pady=10, font=FONT, wrap=tk.WORD)
         self.setup_dropdown()
         self.pack_components()
 
@@ -40,8 +37,7 @@ class Game:
         self.root.title("TypeLearner")
 
     def setup_dropdown(self):
-        options = [filename.strip(".txt").replace("_", " ")
-                                  for filename in os.listdir(PACKAGES_PATH)]
+        options = [filename.strip(".txt").replace("_", " ") for filename in os.listdir(INPUT_PATH)]
         options.append("All")
         self.load_sentences("All")
         self.package_dropdown = ttk.OptionMenu(self.root, tk.StringVar(), "All", command=self.load_sentences, *options)
@@ -64,13 +60,12 @@ class Game:
         if len(self.sentences) == 0:
             self.current_sentence = ""
             return
-        self.current_sentence = self.sentences[random.randint(
-            0, len(self.sentences) - 1)].strip("\n")  # .replace(" ", WHITESPACE_CHAR)
+        self.current_sentence = self.sentences[random.randint(0, len(self.sentences) - 1)].strip("\n")
 
     def load_all(self):
         sentences = []
-        for filename in os.listdir(PACKAGES_PATH):
-            with open(os.path.join(PACKAGES_PATH, filename), "r", encoding="utf-8") as file:
+        for filename in os.listdir(INPUT_PATH):
+            with open(os.path.join(INPUT_PATH, filename), "r", encoding="utf-8") as file:
                 sentences.extend(file.readlines())
         self.sentences = sentences
 
@@ -78,7 +73,7 @@ class Game:
         if (selected_package == "All"):
             self.load_all()
         else:
-            filename = os.path.join(PACKAGES_PATH, f"{selected_package.replace(' ', '_')}.txt")
+            filename = os.path.join(INPUT_PATH, f"{selected_package.replace(' ', '_')}.txt")
             with open(filename, "r", encoding="utf-8") as file:
                 self.sentences = file.readlines()
         self.next_round(None)
@@ -95,7 +90,6 @@ class Game:
             self.sentence_label.tag_remove("red", f"1.{i+1}")
             self.sentence_label.tag_remove("green", f"1.{i+1}")
 
-
         except IndexError:
             print("IndexError input_field onModified")
 
@@ -103,6 +97,6 @@ class Game:
         self.root.mainloop()
 
 
-
 if __name__ == "__main__":
     Game().run()
+    
