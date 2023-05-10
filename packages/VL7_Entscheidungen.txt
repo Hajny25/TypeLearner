@@ -1,6 +1,0 @@
-Eine Entscheidung ist eine Auswahl einer Handlungsalternative (Aktion) aus einer Menge verfügbarer Alternativen.
-Die Phasen der Entscheidungsfindung sind die Recherche, die Alternativengenerierung, die Auswahl und die Umsetzung.
-Strukturierte Entscheidungen, sind diejenigen Entscheidungen, die wiederholt, routinemäßig und nach einem definierten Verfahren zu treffen sind. Unstrukturierte Entscheidungen sind nicht routinemäßige Entscheidungen, bei denen der Entscheidende die Problemdefinition beurteilen, bewerten und verstehen muss und für die kein einheitliches Entscheidungsfindungsverfahren festgelegt ist.
-Während bei deskriptiver Entscheidungstheorie die Frage im Vordergrund steht, weshalb Entscheidungen auf eine bestimmte Weise getroffen werden, steht bei präskriptiven (normativen) Entscheidungen die Entscheidungslogik im Mittelpunkt.
-Crowdsourcing ist ein Kollaborationsmodell, das menschenzentrierte Iformationssysteme einsetzt, um institutionelle, individuelle und gesellschaftliche Probleme (vorgeschlagen von Suchenden) zu lösen, indem es auf eine Menge interessierter Menschen (solver) zurückgreift.
-Als elektronische Partizipation sind Tools zu verstehen, die mithilfe von Informations- und Kommunikationstechnologie der Bevölkerung die Fähigkeit zur Beteiligung und Einflussnahme auf Entscheidungsprozesse zu ermöglichen.
