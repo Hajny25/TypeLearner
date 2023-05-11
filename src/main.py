@@ -29,7 +29,7 @@ class Game:
         self.root.bind("<Return>", self.next_round)
         self.sentence_label.tag_config("red", background="salmon1")
         self.sentence_label.tag_config("green", background="OliveDrab1")
-        self.input_field.bind("<<TextModified>>", self.onModified)
+        self.input_field.bind("<<TextModified>>", self.on_modified)
 
     def setup_window(self):
         self.root = tk.Tk()
@@ -70,7 +70,7 @@ class Game:
         self.sentences = sentences
 
     def load_sentences(self, selected_package: tk.StringVar):
-        if (selected_package == "All"):
+        if selected_package == "All":
             self.load_all()
         else:
             filename = os.path.join(INPUT_PATH, f"{selected_package.replace(' ', '_')}.txt")
@@ -78,11 +78,11 @@ class Game:
                 self.sentences = file.readlines()
         self.next_round(None)
 
-    def onModified(self, event):
+    def on_modified(self, event):
         input_text = self.input_field.get(index1=1.0, index2=tk.END)
         i = len(input_text) - 2
         try:
-            if (self.current_sentence[i] != input_text[i]):
+            if self.current_sentence[i] != input_text[i]:
                 self.sentence_label.tag_add("red", f"1.{i}")
             else:
                 self.sentence_label.tag_add("green", f"1.{i}")
